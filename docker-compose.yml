@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  mysql-customer:
+    container_name: customer
+    image: mysql:8.0-debian
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: customer_db
+      MYSQL_USER: customer1
+      MYSQL_PASSWORD: customer1
+      MYSQL_ROOT_PASSWORD: rootCustomerSecret
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_customer:/var/lib/mysql
+
+volumes:
+  db_customer:
