@@ -8,7 +8,7 @@ on:
 jobs:
   compile:
 
-    runs-on: self-hosted
+    runs-on: label-runner1
 
     steps:
     - uses: actions/checkout@v4
@@ -20,8 +20,10 @@ jobs:
         cache: maven
     - name: compile with Maven
       run: mvn compile
+
+      
   security-check:
-    runs-on: self-hosted
+    runs-on: label-runner1
     needs: compile
     steps:
       - uses: actions/checkout@v4
@@ -47,7 +49,7 @@ jobs:
         run: gitleaks detect --source . -r gitleaks-report.json -f json
   test:
 
-    runs-on: self-hosted
+    runs-on: label-runner1
     needs: security-check
     steps:
       - uses: actions/checkout@v4
