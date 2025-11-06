@@ -31,3 +31,22 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Terraform state
+*.tfstate
+*.tfstate.backup
+
+# Terraform provider plugins
+/terraform/.terraform/
+/terraform/.terraform.lock.hcl
+/terraform/main.tf
+# Sensitive files
+*.pem
+*.key
+*.tfvars
+
+# Local files and logs
+crash.log
+override.tf
+override.tf.json
+terraform.rc
